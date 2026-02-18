@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useBookmarkStore } from '@/store/useBookmarkStore';
-import { Bookmark, Lock, Zap, Share2 } from 'lucide-react';
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useBookmarkStore } from "@/store/useBookmarkStore";
+import { Bookmark, Lock, Zap, Share2 } from "lucide-react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LandingPage() {
   const { user, signInWithGoogle } = useBookmarkStore();
@@ -11,7 +11,7 @@ export default function LandingPage() {
 
   useEffect(() => {
     if (user) {
-      router.push('/dashboard');
+      router.push("/dashboard");
     }
   }, [user, router]);
 
@@ -26,15 +26,19 @@ export default function LandingPage() {
         <div className="mx-auto max-w-2xl shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
           <div className="flex items-center gap-x-3 text-indigo-400">
             <Bookmark className="h-8 w-8" />
-            <span className="text-xl font-bold tracking-tight text-white">Smart Bookmark</span>
+            <span className="text-xl font-bold tracking-tight text-white">
+              Smart Bookmark
+            </span>
           </div>
-          
+
           <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Save your web, <span className="text-indigo-400">organized</span> and <span className="text-indigo-400">secure</span>.
+            Save your web, <span className="text-indigo-400">organized</span>{" "}
+            and <span className="text-indigo-400">secure</span>.
           </h1>
-          
+
           <p className="mt-6 text-lg leading-8 text-slate-400">
-            The production-grade bookmark manager for professionals. Real-time sync, strict privacy, and a beautiful interface.
+            The production-grade bookmark manager for professionals. Real-time
+            sync, strict privacy, and a beautiful interface.
           </p>
 
           <div className="mt-10 flex items-center gap-x-6">
@@ -65,20 +69,79 @@ export default function LandingPage() {
           </div>
         </div>
 
-        <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
+        {/* <div className="mx-auto mt-16 flex md:max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
           <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-1">
               {[
-                { title: 'Real-time Sync', description: 'Changes reflect across all your devices instantly.', icon: Zap },
-                { title: 'Strict Privacy', description: 'Your bookmarks are yours alone, protected by RLS.', icon: Lock },
-                { title: 'Easy Sharing', description: 'Organize with tags and share with one click.', icon: Share2 }
+                {
+                  title: "Real-time Sync",
+                  description:
+                    "Changes reflect across all your devices instantly.",
+                  icon: Zap,
+                },
+                {
+                  title: "Strict Privacy",
+                  description:
+                    "Your bookmarks are yours alone, protected by RLS.",
+                  icon: Lock,
+                },
+                {
+                  title: "Easy Sharing",
+                  description: "Organize with tags and share with one click.",
+                  icon: Share2,
+                },
               ].map((feature, i) => (
-                <div key={i} className="relative flex items-center gap-6 rounded-2xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 glass-morphism hover:bg-white/10 transition-all">
+                <div
+                  key={i}
+                  className="relative flex items-center gap-6 rounded-2xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 glass-morphism hover:bg-white/10 transition-all"
+                >
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-500/20 text-indigo-400">
                     <feature.icon className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
+                    <h3 className="text-lg font-semibold text-white">
+                      {feature.title}
+                    </h3>
+                    <p className="mt-1 text-slate-400">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div> */}
+        <div className="mx-auto mt-16 flex flex-col md:max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
+          <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+            <div className="grid grid-cols-1  gap-8">
+              {[
+                {
+                  title: "Real-time Sync",
+                  description:
+                    "Changes reflect across all your devices instantly.",
+                  icon: Zap,
+                },
+                {
+                  title: "Strict Privacy",
+                  description:
+                    "Your bookmarks are yours alone, protected by RLS.",
+                  icon: Lock,
+                },
+                {
+                  title: "Easy Sharing",
+                  description: "Organize with tags and share with one click.",
+                  icon: Share2,
+                },
+              ].map((feature, i) => (
+                <div
+                  key={i}
+                  className="relative flex items-center gap-6 rounded-2xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 glass-morphism hover:bg-white/10 transition-all"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-500/20 text-indigo-400">
+                    <feature.icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white">
+                      {feature.title}
+                    </h3>
                     <p className="mt-1 text-slate-400">{feature.description}</p>
                   </div>
                 </div>
